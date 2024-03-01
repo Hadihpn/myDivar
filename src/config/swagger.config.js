@@ -1,11 +1,11 @@
-const swaggerjsDoc = require("swagger-jsdoc");
+const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 function SwaggerConfig (app) {
     const swaggerDocument = swaggerJsDoc({
         swaggerDefinition: {
             openapi: "3.0.1",
             info: {
-                title: "divar-backend",
+                title: "My divar-backend",
                 description: "botostart nodejs course",
                 version: "1.0.0",
             },
