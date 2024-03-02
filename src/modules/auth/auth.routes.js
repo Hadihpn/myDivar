@@ -1,9 +1,8 @@
 const {Router} = require("express");
 const authController = require("./auth.controller");
 const router = Router();
-router.get("/send-otp",(req,res,next)=>{
-    console.log("asdfds")
-})
+router.post("/send-otp",authController.sendOTP)
+router.post("/check-otp",authController.checkOTP)
 module.exports = {
     AuthRouter:router
 }

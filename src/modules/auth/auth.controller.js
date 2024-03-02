@@ -1,5 +1,6 @@
 const autoBind = require("auto-bind");
 const authService = require("./auth.service");
+const { AuthMessage } = require("./auth.messages");
 
 class AuthController {
     #service;
@@ -8,9 +9,24 @@ class AuthController {
         this.#service = authService;
     }
 
-    async sendTP(req, res, next) {
+    async sendOTP(req, res, next) {
         try {
-            console.log("adfs");
+            const {mobile} = req.body;
+            if(mobile){
+                await this.#service.sendOTP(mobile);
+                return res.json(AuthMessage.sendOTPSuccess)
+            }
+           
+        } catch (error) {
+            next(error)
+        }
+    }
+    async checkOTP(req,res,next){
+        try {
+            const{mobile,code} = req.body;
+            
+
+            await this.#service.checkOTP(mobile,code)
         } catch (error) {
             next(error)
         }

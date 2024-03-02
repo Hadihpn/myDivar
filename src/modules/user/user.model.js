@@ -7,7 +7,7 @@ const OTPSchema = new Schema({
 const UserSchema = new Schema({
     name: { type: String, required: false },
     userName: { type: String, required: false, lowercase: true },
-    phone: { type: String, required: true ,minLength:10,maxLength:12 },
+    mobile: { type: String, required: true ,minLength:10,maxLength:12 },
     otp: { type: OTPSchema },
     verifiedMobile: { type: Boolean, default: false, required: true },
     // accessToken: { type: String },
