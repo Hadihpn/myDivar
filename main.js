@@ -4,6 +4,7 @@ require("dotenv").config();
 const AllExceptionHandler = require("./src/common/exception/all-exception.handler")
 const NotFoundHandler = require("./src/common/exception/not-found.handler");
 const SwaggerConfig = require("./src/config/swagger.config");
+const cookieParser = require("cookie-parser");
 
 
 async function main() {
@@ -14,6 +15,7 @@ async function main() {
     app.use(express.static("public"));
     require("./src/config/mongoos.config")
     SwaggerConfig(app);
+    app.use(cookieParser())
     app.use(mainRouter);
     NotFoundHandler(app);
     AllExceptionHandler(app);
