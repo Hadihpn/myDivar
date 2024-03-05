@@ -4,6 +4,8 @@ OtpCodeNotExpired:"the last otp code is not expired yet",
 OtpCodeExpired:"your code had been expired . try to get a new one",
 WrongOtpCode:"please enter the valid code",
 LoginInSuccesfully:"u logged in",
+LogoutSuccesfully:"u logged out",
+
 }
 
 module.exports = {
