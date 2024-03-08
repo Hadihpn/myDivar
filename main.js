@@ -5,6 +5,7 @@ const AllExceptionHandler = require("./src/common/exception/all-exception.handle
 const NotFoundHandler = require("./src/common/exception/not-found.handler");
 const SwaggerConfig = require("./src/config/swagger.config");
 const cookieParser = require("cookie-parser");
+const expressEjsLayouts = require("express-ejs-layouts");
 
 
 async function main() {
@@ -13,7 +14,10 @@ async function main() {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(express.static("public"));
-    require("./src/config/mongoos.config")
+    require("./src/config/mongoos.config");
+    app.use(expressEjsLayouts)
+    app.set("view engine","ejs")
+    app.set("layout","./layouts/panel/main.ejs")
     SwaggerConfig(app);
     app.use(cookieParser())
     app.use(mainRouter);

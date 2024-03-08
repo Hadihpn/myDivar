@@ -1,5 +1,11 @@
-const PostMessages = Object.freeze({
+const PostMessage = {
+    Created: "post created successfully",
+    NotFound: "post not found",
+    AlreadyExist: "post AlreadyExist",
+    Deleted: "post Deleted successfully",
+    RequestNotValid: "Request is Not Valid",
 
-})
-
-module.exports = PostMessages;
+}
+module.exports = {
+    PostMessage
+}
