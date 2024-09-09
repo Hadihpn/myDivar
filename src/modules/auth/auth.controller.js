@@ -29,7 +29,6 @@ class AuthController {
 
             return res.cookie("AccessToken", user.accessToken, {
                 httpOnly: true,
-
                 path: "/"
             }).status(200).json({
                 message: AuthMessage.LoginInSuccesfully,
@@ -41,8 +40,9 @@ class AuthController {
     }
     async logout(req, res, next) {
         try {
-            res.clearCookie(CookieName.AccessToken);
-            res.json(AuthMessage.LogoutSuccesfully);
+            console.log(res.cookies.AccessToken);
+            // res.clearCookie(CookieName.AccessToken);
+            // res.json(AuthMessage.LogoutSuccesfully);
         } catch (error) {
             next(error)
         }

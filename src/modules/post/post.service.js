@@ -16,6 +16,9 @@ class PostService {
         this.#optionModel = OptionModel;
         this.#categoryModel = CategoryModel;
     }
+    async getPostList(){
+        return await this.#model.find()
+    }
     async getCategoryOptions(categoryId) {
         return await this.#optionModel.find({ category: categoryId });
     }

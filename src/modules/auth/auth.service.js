@@ -41,11 +41,6 @@ class AuthService {
             if (now > user.expiresIn) throw new createHttpError.BadRequest(AuthMessage.OtpCodeExpired);
             if (!user.otp.code == code) throw new createHttpError.BadRequest(AuthMessage.WrongOtpCode);
             const token = await this.signToken({mobile,id:user._id})
-            console.log(user);
-            console.log(mobile);
-            console.log(user._id);
-            console.log(process.env.JWT_SECRET_KEY);
-            console.log(token);
             user.accessToken = token
             user.verifiedMobile = true;
             await user.save();

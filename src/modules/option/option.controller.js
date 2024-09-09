@@ -11,7 +11,7 @@ class OptionController {
         try {
             console.log(req.body)
             const { title, key, category, type, enum: list, guide, reuired } = req.body;
-            await this.#service.create({ title, key, category, type, enum: list, guide, reuired })
+            // await this.#service.create({ title, key, category, type, enum: list, guide, reuired })
         } catch (error) {
             next(error)
         }
